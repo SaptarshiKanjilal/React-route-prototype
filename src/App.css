@@ -105,3 +105,41 @@
 .expense-item h6 {
   font: 8px;
 }
+
+/* Addexpense page */
+
+.formWrapper {
+  height: 800px;
+  padding: 60px 0;
+}
+
+.inputWrapper {
+  margin-top: 56px;
+  padding: 40px;
+  max-width: 1000px;
+  margin: auto;
+  height: 650px;
+  background-color: rgb(238, 238, 238);
+}
+
+.inputWrapper button {
+  width: 100%;
+  height: 60px;
+  outline: none;
+  border: none;
+  border-radius: 7px;
+  background-color: #726e6e;
+  color: white;
+  font-size: 20px;
+}
+.inputWrapper input {
+  display: block;
+  width: 100%;
+  height: 40px;
+  margin-bottom: 60px;
+}
+
+.inputWrapper textarea {
+  width: 100%;
+  margin-bottom: 60px;
+}
