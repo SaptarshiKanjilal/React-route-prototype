@@ -19,7 +19,7 @@ const ExpenseItemList = () => {
           
           expenses.map((Element,idx)=>{
             return(
-              <ExpenseListItem description={Element.description} date={Element.date} amount={Element.amount} key={idx} />
+              <ExpenseListItem description={Element.description} date={Element.date} amount={Element.amount} idx={idx} />
             )
           })
           
