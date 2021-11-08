@@ -9,11 +9,9 @@ export default (state ,action)=>{
             return {
             ...state,editedObj:{...action.payload}
         }
-        case 'EDIT_EXPENSE':return{
-            ...state,
-            expenses:state.expenses.splice(action.payload,1,state.editedObj),
-            editedObj:{}
-        }
+        case 'EDIT_EXPENSE':state.expenses.splice(action.payload,1,state.editedObj)
+                            return state
+        
         
         default:return state
     }
