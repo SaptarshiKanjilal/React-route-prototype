@@ -5,6 +5,7 @@ import AddExpense from './Pages/AddExpense/AddExpense'
 import Navbar from "./core/Navbar";
 import GlobalState from "./context/GlobalState";
 import EditExpense from "./Pages/EditExpense/EditExpense";
+import SettingsExpense from "./Pages/SettingsExpense/SettingsExpense";
 
 
 
@@ -16,12 +17,10 @@ function App() {
      <Navbar/>
     <Switch>
     <GlobalState>
-     
-     
      <Route exact={true} path='/' component={HomePage}/>
-     <Route exact={true} path='/editexpense' component={EditExpense}/>
+     <Route exact={true} path='/editexpense'  component={EditExpense}/>
       <Route exact={true} path='/addexpense' component={AddExpense}/>
-     
+      <Route exact={true} path='/settings' component={SettingsExpense}/>
     </GlobalState>
      
      </Switch>

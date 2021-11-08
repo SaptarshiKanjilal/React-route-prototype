@@ -18,16 +18,24 @@ const ExpenseDetails = ({id}) => {
    }
   }
   let amount=expenses.reduce((acc,Element)=>acc+parseInt(Element.amount),0)
-  let text=(path.pathname==='/editexpense')?'Edit Expense':`Viewing ${expenses.length} expenses totalling $${amount}`
+  let text=(path.pathname!=='/settings')?((path.pathname==='/editexpense')?'Edit Expense':`Viewing ${expenses.length} expenses totalling $${amount}`):'Settings'
+
   let btnText=(path.pathname==='/editexpense')?'Edit Expense':'Add Expense'
+
+  
   return (
     <Fragment>
-      <div className="expensedetails">
-        <div className="container expense-content">
-          <h1>{text}</h1>
+      <div className="expensedetails"style={(path.pathname==='/settings')?{color:'white',backgroundColor:'rgb(141, 133, 133)'}:{}}>
+        <div className="container expense-content" style={(path.pathname==='/settings')?{position:'absolute',bottom:'10px',left:'50%',transform:'translateX(-50%)'}:{}}>
+          <h1 style={(path.pathname==='/settings')?{textAlign:'center',fontSize:'55px'}:{}}>{text}</h1>
           {/* <link to='/addexpense'>Add Expense</link> */}
-          <button className="add-expense-btn" onClick={handleClick}>{btnText}</button>
+          {
+            (path.pathname!=='/settings')?<button className="add-expense-btn" onClick={handleClick}>{btnText}</button>:''}
+
         </div>
+         {
+          (path.pathname==='/settings')?<div className='something'></div>:''
+         }
       </div>
     </Fragment>
   );

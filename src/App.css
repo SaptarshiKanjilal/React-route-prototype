@@ -12,7 +12,7 @@
 
 .navbar .navbar-wrapper {
   height: 100%;
-  width: 60%;
+  width: 80%;
   margin: auto;
   display: flex;
   justify-content: space-between;
@@ -23,15 +23,38 @@
   font-size: 28px;
   cursor: pointer;
 }
-
-.navbar .navbar-wrapper h3 {
+.settings-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 180px;
+}
+.navbar .navbar-wrapper .settings-wrapper h3 {
+  display: flex;
+  align-items: center;
+}
+.navbar .navbar-wrapper .settings-wrapper h3:hover {
   cursor: pointer;
+  color: #ccc;
 }
 
 /* Expense Details */
 .expensedetails {
   height: 250px;
   background-color: #f7f7f7;
+  position: relative;
+  z-index: 1;
+}
+.expensedetails .something {
+  position: absolute;
+  content: "";
+  display: block;
+  height: 100px;
+  width: 100%;
+  background-color: silver;
+  bottom: 50%;
+  transform: translateY(50%);
+  z-index: -1;
 }
 
 .expense-content h1 {
@@ -143,4 +166,93 @@
 .inputWrapper textarea {
   width: 100%;
   margin-bottom: 60px;
+}
+
+/*Settings Page*/
+
+.settings-input {
+  margin-top: 45px;
+  height: 478px;
+  width: 1700px;
+  border-radius: 10px;
+  background-color: rgb(184, 182, 182);
+  position: relative;
+}
+
+.settings-input .first {
+  margin-bottom: 50px;
+  height: 200px;
+  text-align: center;
+}
+.settings-input .first ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 30px;
+}
+.settings-input .first ul li {
+  padding: 30px;
+  border: 1px solid silver;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.settings-input .first ul .Dark {
+  background-color: rgb(25, 28, 44);
+}
+.settings-input .first ul .Light {
+  background-color: white;
+  color: black;
+}
+.settings-input .first ul .Nature {
+  background-color: rgb(45, 133, 45);
+}
+.settings-input .first ul .Wrath {
+  background-color: rgb(238, 85, 15);
+}
+.settings-input .first h3 {
+  margin-bottom: 45px;
+}
+.settings-input .second {
+  text-align: center;
+  height: 100px;
+  margin-bottom: 13px;
+}
+.settings-input .second h3 {
+  margin-bottom: 15px;
+}
+.settings-input .second {
+  position: relative;
+}
+.settings-input .second select {
+  display: block;
+  height: 40px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 10px;
+  border: none;
+  outline: none;
+}
+
+.settings-input .first,
+.settings-input .second {
+  width: 100%;
+  border-radius: 10px;
+  border: 2px solid rgb(114, 57, 57);
+}
+
+.applychanges {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  border: none;
+  outline: none;
+  height: 60px;
+  width: 150px;
+  border-radius: 10px;
+  font-size: 20px;
+  background-color: rgb(114, 57, 57);
+  color: white;
+  cursor: pointer;
 }
