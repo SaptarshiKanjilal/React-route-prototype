@@ -7,12 +7,14 @@ import { GlobalContext } from '../../context/GlobalState'
 
 const EditExpense = () => {
     
+    
     // let {idx}=useParams()
     // console.log(useLocation().state);
  
 
     return (
         <div>
+          
             <ExpenseDetails id={useLocation().state.id} />  
             <InputForm id={useLocation().state.id} update={useLocation().state.update}/>
         </div>

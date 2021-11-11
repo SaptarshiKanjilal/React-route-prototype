@@ -1,6 +1,10 @@
-import React, { Fragment } from "react";
+import React, { Fragment,useContext} from "react";
+import { GlobalContext } from "../../context/GlobalState";
+
 
 const ExpenseFilterForm = () => {
+
+    let {settings}=useContext(GlobalContext)
   return (
     <div className="ExpenseFilterForm">
       <div className="container filter-content">
@@ -9,8 +13,9 @@ const ExpenseFilterForm = () => {
           placeholder="Search Expenses"
           name="searchInput"
           autocomplete="off"
+          style={(settings.theme)?{backgroundColor:'#253454',color:'white',border:'none',outline:'none'}:{}}
         />
-        <select name="filterDropdown" className="filter-dropdown">
+        <select name="filterDropdown" className="filter-dropdown" style={(settings.theme)?{backgroundColor:'#253454',color:'white',border:'none',outline:'none'}:{}} >
           <option value="1" selected>
             Date
           </option>

@@ -6,8 +6,8 @@ import ExpenseReducer from './ExpenseReducer'
 const initialState={
   
     expenses:[],
-    editedObj:{}
-    
+    editedObj:{},
+    settings:{}
 }
 export const GlobalContext=createContext(initialState)
 
@@ -18,7 +18,7 @@ const GlobalState = ({children}) => {
   const addExpense=(data)=>{
     dispatch({
       type:'ADD_EXPENSE',
-      payload:data
+      payload:data,
     })
   }
   const editObj=(Data)=>{
@@ -31,17 +31,28 @@ const GlobalState = ({children}) => {
   const editExpense=(data)=>{
     dispatch({
       type:'EDIT_EXPENSE',
-      payload:data
+      payload:data,
+      
     })
   }
+    const changeSettings=(data)=>{
+      dispatch({
+        type:'EDIT_SETTINGS',
+        payload:data
+      })
+    }
+  
     return (
         <GlobalContext.Provider
         value={{
             expenses:state.expenses,
             editedObj:state.editedObj,
+            settings:state.settings,
             addExpense,
             editExpense,
-            editObj
+            changeSettings,
+            editObj,
+
         }}>
         
           {children}

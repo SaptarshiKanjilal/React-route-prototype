@@ -11,8 +11,11 @@ export default (state ,action)=>{
         }
         case 'EDIT_EXPENSE':state.expenses.splice(action.payload,1,state.editedObj)
                             return state
-        
-        
+        case 'EDIT_SETTINGS':return {
+            ...state,
+            settings:{...action.payload}
+        }    
+    
         default:return state
     }
 }
