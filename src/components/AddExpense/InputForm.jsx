@@ -4,7 +4,7 @@ import {useHistory,useLocation} from 'react-router-dom'
 
 const InputForm = ({id,update}) => {
 
-  let {expenses,addExpense,editObj,editedObj}=useContext(GlobalContext)
+  let {expenses,addExpense,editObj,editedObj,settings}=useContext(GlobalContext)
   let history=useHistory()
   let path=useLocation()
   let [formData, setFormData]=useState((!update)?{
@@ -51,10 +51,19 @@ const InputForm = ({id,update}) => {
    
     return (
           
-        <form className='inputWrapper' Add autocomplete="off" onSubmit={handleSubmit} onChange={handleChange}>
-        <input type="text" placeholder="description" name="description"  value={formData.description}/>
-        <input type="number" placeholder="Amount" name="amount"  value={formData.amount} />
-        <input type="date"  name='date' value={formData.date} />
+        <form className='inputWrapper' Add autocomplete="off" onSubmit={handleSubmit} onChange={handleChange} style={(path.pathname==='/editexpense')?((settings.theme==='Dark')?{backgroundColor:'#3b3b65',marginTop:'75px',height:'550px'}:{marginTop:'75px',height:'550px'}):((settings.theme==='Dark')?{backgroundColor:'#3b3b65'}:{})}>
+
+        <input type="text" placeholder="description" name="description"  value={formData.description}
+          style={(settings.theme)?{backgroundColor:'#040434',color:'white',border:'none',outline:'none'}:{}}
+        />
+
+        <input type="number" placeholder="Amount" name="amount"  value={formData.amount} 
+         style={(settings.theme)?{backgroundColor:'#040434',color:'white',border:'none',outline:'none'}:{}} />
+
+        <input type="date"  name='date' value={formData.date} 
+           style={(settings.theme)?{backgroundColor:'#040434',color:'white',border:'none',outline:'none'}:{}}
+        />
+
         <textarea
           name="note"
           cols="30"
@@ -62,9 +71,10 @@ const InputForm = ({id,update}) => {
           placeholder="Add a note for your expense (optional)"
           
           value={formData.note}
+          style={(settings.theme)?{backgroundColor:'#040434',color:'white',border:'none',outline:'none'}:{}}
         ></textarea>
         {
-          (path.pathname==='/addexpense')?<button type='submit'>submit</button>:''
+          (path.pathname==='/addexpense')?<button type='submit'  style={(settings.theme)?{backgroundColor:'#1c88bf',color:'white',border:'none',outline:'none'}:{}}>submit</button>:''
         }
         {/* <button type='submit'>submit</button> */}
         

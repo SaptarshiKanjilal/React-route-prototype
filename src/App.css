@@ -8,6 +8,9 @@
   height: 10vh;
   background-color: #364051;
   color: white;
+  position: sticky;
+  top: 0px;
+  z-index: 2;
 }
 
 .navbar .navbar-wrapper {
@@ -42,6 +45,7 @@
 .expensedetails {
   height: 250px;
   background-color: #f7f7f7;
+  /*#f7f7f7*/
   position: relative;
   z-index: 1;
 }
@@ -171,11 +175,12 @@
 /*Settings Page*/
 
 .settings-input {
-  margin-top: 45px;
-  height: 478px;
+  margin-top: 80px;
+  height: 500px;
   width: 1700px;
   border-radius: 10px;
-  background-color: rgb(184, 182, 182);
+  background-color: rgb(216, 204, 204);
+
   position: relative;
 }
 
@@ -207,7 +212,7 @@
 .settings-input .first ul .Nature {
   background-color: rgb(45, 133, 45);
 }
-.settings-input .first ul .Wrath {
+.settings-input .first ul .Tomato {
   background-color: rgb(238, 85, 15);
 }
 .settings-input .first h3 {
@@ -255,4 +260,8 @@
   background-color: rgb(114, 57, 57);
   color: white;
   cursor: pointer;
+}
+
+.darkBtn {
+  background-color: #1c88bf;
 }

@@ -4,7 +4,7 @@ import {useHistory,useLocation} from 'react-router-dom'
 import { GlobalContext } from '../context/GlobalState';
 
 const ExpenseDetails = ({id}) => {
-  let {expenses,editExpense}=useContext(GlobalContext)
+  let {expenses,editExpense,settings}=useContext(GlobalContext)
    let history=useHistory()
    let path=useLocation()
    console.log(path);
@@ -25,16 +25,19 @@ const ExpenseDetails = ({id}) => {
   
   return (
     <Fragment>
-      <div className="expensedetails"style={(path.pathname==='/settings')?{color:'white',backgroundColor:'rgb(141, 133, 133)'}:{}}>
+      <div className="expensedetails"style={(path.pathname==='/settings')?((settings.theme==='Dark')?{color:'white',backgroundColor:'#253454'}:{color:'white',backgroundColor:'rgb(141, 133, 133)'}):((settings.theme==='Dark')?{color:'white',backgroundColor:'#253454'}:{})}>
+
         <div className="container expense-content" style={(path.pathname==='/settings')?{position:'absolute',bottom:'10px',left:'50%',transform:'translateX(-50%)'}:{}}>
+
           <h1 style={(path.pathname==='/settings')?{textAlign:'center',fontSize:'55px'}:{}}>{text}</h1>
-          {/* <link to='/addexpense'>Add Expense</link> */}
+          
+
           {
             (path.pathname!=='/settings')?<button className="add-expense-btn" onClick={handleClick}>{btnText}</button>:''}
 
         </div>
          {
-          (path.pathname==='/settings')?<div className='something'></div>:''
+          (path.pathname==='/settings')?<div className='something' style={(settings.theme==='Dark')?{backgroundColor:'#364064'}:{}}></div>:''
          }
       </div>
     </Fragment>
