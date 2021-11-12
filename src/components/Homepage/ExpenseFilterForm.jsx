@@ -13,9 +13,9 @@ const ExpenseFilterForm = () => {
           placeholder="Search Expenses"
           name="searchInput"
           autocomplete="off"
-          style={(settings.theme)?{backgroundColor:'#253454',color:'white',border:'none',outline:'none'}:{}}
+          style={(settings.theme==='Dark')?{backgroundColor:'#253454',color:'white',border:'none',outline:'none'}:{}}
         />
-        <select name="filterDropdown" className="filter-dropdown" style={(settings.theme)?{backgroundColor:'#253454',color:'white',border:'none',outline:'none'}:{}} >
+        <select name="filterDropdown" className="filter-dropdown" style={(settings.theme==='Dark')?{backgroundColor:'#253454',color:'white',border:'none',outline:'none'}:{}} >
           <option value="1" selected>
             Date
           </option>
