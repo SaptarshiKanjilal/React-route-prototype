@@ -7,7 +7,11 @@ const initialState={
   
     expenses:[],
     editedObj:{},
-    settings:{}
+    settings:{
+      theme:'Light',
+      layout:'Expense'
+    },
+    fitness:[]
 }
 export const GlobalContext=createContext(initialState)
 
@@ -41,6 +45,13 @@ const GlobalState = ({children}) => {
         payload:data
       })
     }
+
+    const addFitness=(data)=>{
+      dispatch({
+        type:'ADD_FITNESS',
+        payload:data
+      })
+    }
   
     return (
         <GlobalContext.Provider
@@ -48,11 +59,12 @@ const GlobalState = ({children}) => {
             expenses:state.expenses,
             editedObj:state.editedObj,
             settings:state.settings,
+            fitness:state.fitness,
             addExpense,
             editExpense,
             changeSettings,
             editObj,
-
+            addFitness
         }}>
         
           {children}

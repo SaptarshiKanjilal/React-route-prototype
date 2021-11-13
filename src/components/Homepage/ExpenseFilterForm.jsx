@@ -10,7 +10,7 @@ const ExpenseFilterForm = () => {
       <div className="container filter-content">
         <input
           type="text"
-          placeholder="Search Expenses"
+          placeholder={(settings.layout==='Expense')?"Search Expenses":'Search Workouts'}
           name="searchInput"
           autocomplete="off"
           style={(settings.theme==='Dark')?{backgroundColor:'#253454',color:'white',border:'none',outline:'none'}:{}}
@@ -19,7 +19,7 @@ const ExpenseFilterForm = () => {
           <option value="1" selected>
             Date
           </option>
-          <option value="2">Amount</option>
+          <option value="2">{(settings.layout==='Expense')?"Amount":'Steps'}</option>
         </select>
         <h1>Date Picker</h1>
       </div>

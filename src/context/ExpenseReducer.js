@@ -15,7 +15,12 @@ export default (state ,action)=>{
             ...state,
             settings:{...action.payload}
         }    
-    
+        case 'ADD_FITNESS':console.log(state.fitness);
+                           return {
+            ...state,
+            fitness:[...state.fitness,action.payload]
+           
+       }
         default:return state
     }
 }
