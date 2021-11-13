@@ -8,7 +8,7 @@ const HomePage = () => {
    
   let {expenses}=useContext(GlobalContext)
   let amount=expenses.reduce((acc,Element)=>acc+parseInt(Element.amount),0)
-  
+    
    return (
     <Fragment>
       <ExpenseDetails />

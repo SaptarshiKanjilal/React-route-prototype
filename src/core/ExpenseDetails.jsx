@@ -4,23 +4,35 @@ import {useHistory,useLocation} from 'react-router-dom'
 import { GlobalContext } from '../context/GlobalState';
 
 const ExpenseDetails = ({id}) => {
-  let {expenses,editExpense,settings}=useContext(GlobalContext)
+  let {expenses,editExpense,settings,fitness}=useContext(GlobalContext)
    let history=useHistory()
    let path=useLocation()
+  
    console.log(path);
   //  console.log(expenses);
    const handleClick=(e)=>{
-    if(e.target.textContent==='Add Expense') 
+    if(settings.layout==='Expense'){
+      if(e.target.textContent==='Add Expense') 
      history.push({pathname:'/addexpense',state:{update:false}})
     else{
      editExpense(id)
      history.push('/') 
    }
+    }
+    else{
+      if(e.target.textContent==='Add Workout') 
+     history.push({pathname:'/addexpense',state:{update:false}})
+    else{
+     editExpense(id)
+     history.push('/') 
+   }
+    }
   }
   let amount=expenses.reduce((acc,Element)=>acc+parseInt(Element.amount),0)
-  let text=(path.pathname!=='/settings')?((path.pathname==='/editexpense')?'Edit Expense':`Viewing ${expenses.length} expenses totalling $${amount}`):'Settings'
+  let steps=fitness.reduce((acc,ele)=>acc+parseInt(ele.steps),0)
+  let text=(settings.layout==='Expense')?((path.pathname!=='/settings')?((path.pathname==='/editexpense')?'Edit Expense':`Viewing ${expenses.length} expenses totalling $${amount}`):'Settings'):((path.pathname!=='/settings')?((path.pathname==='/editexpense')?'Edit Workout':`Viewing ${fitness.length} workouts totalling ${steps} steps`):'Settings')
 
-  let btnText=(path.pathname==='/editexpense')?'Edit Expense':'Add Expense'
+  let btnText=(settings.layout==='Expense')?((path.pathname==='/editexpense')?'Edit Expense':'Add Expense'):((path.pathname==='/editexpense')?'Edit Workout':'Add Workout')
 
   
   return (
