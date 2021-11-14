@@ -14,24 +14,29 @@ import react from "react";
 
 function App() {
 
+  
   let {settings}=useContext(GlobalContext)
   return(
-
+    <div className='main' style={(settings.theme==='Dark')?{backgroundColor:'#040434'}:((settings.theme==='Nature')?{backgroundColor:'#5F7A61'}:{})}>
+     
      <Router>
      <Navbar/>
+     
     <Switch>
    
-    <div className='main' style={(settings.theme==='Dark')?{backgroundColor:'#040434',height:'100vh'}:{backgroundColor:'white',height:'100vh'}}>
+    
     <Route exact={true} path='/' component={HomePage}/>
      <Route exact={true} path='/editexpense'  component={EditExpense}/>
       <Route exact={true} path='/addexpense' component={AddExpense}/>
       <Route exact={true} path='/settings' component={SettingsExpense}/>
+      </Switch>
      
+   
+    
+    </Router>
     </div>
      
-     
-     </Switch>
-    </Router>
+    
 
   
   )

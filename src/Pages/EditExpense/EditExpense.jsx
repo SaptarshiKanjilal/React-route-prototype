@@ -3,6 +3,7 @@ import InputForm from '../../components/AddExpense/InputForm'
 import ExpenseDetails from '../../core/ExpenseDetails'
 import {useParams,useLocation} from 'react-router-dom'
 import { GlobalContext } from '../../context/GlobalState'
+import { Fragment } from 'react'
 
 
 const EditExpense = () => {
@@ -21,11 +22,11 @@ const EditExpense = () => {
     }
 
     return (
-        <div>
+        <Fragment>
           
             <ExpenseDetails id={useLocation().state.id} />  
             <InputForm id={useLocation().state.id} update={useLocation().state.update} names={names}/>
-        </div>
+        </Fragment>
     )
 }
 

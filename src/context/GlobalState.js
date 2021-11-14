@@ -52,6 +52,12 @@ const GlobalState = ({children}) => {
         payload:data
       })
     }
+    const editFitness=(data)=>{
+      dispatch({
+        type:'EDIT_FITNESS',
+        payload:data
+      })
+    }
   
     return (
         <GlobalContext.Provider
@@ -64,7 +70,8 @@ const GlobalState = ({children}) => {
             editExpense,
             changeSettings,
             editObj,
-            addFitness
+            addFitness,
+            editFitness
         }}>
         
           {children}

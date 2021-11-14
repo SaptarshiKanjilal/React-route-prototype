@@ -71,17 +71,17 @@ const InputForm = ({id,update,names}) => {
    
     return (
           
-        <form className='inputWrapper' Add autocomplete="off" onSubmit={handleSubmit} onChange={handleChange} style={(path.pathname==='/editexpense')?((settings.theme==='Dark')?{backgroundColor:'#3b3b65',marginTop:'75px',height:'550px'}:{marginTop:'75px',height:'550px'}):((settings.theme==='Dark')?{backgroundColor:'#3b3b65'}:{})}>
+        <form className='inputWrapper' Add autocomplete="off" onSubmit={handleSubmit} onChange={handleChange} style={(path.pathname==='/editexpense')?{marginTop:'30px',height:'600px'}:{}}>
 
         <input type="text" placeholder={(settings.layout==='Expense')?'description':'distance covered(in metres)'} name={names[0]}  value={formData[names[0]]}
-          style={(settings.theme==='Dark')?{backgroundColor:'#040434',color:'white',border:'none',outline:'none'}:{}}
+          style={(settings.theme==='Dark')?{backgroundColor:'#141E61',color:'white',border:'1px solid #035397',outline:'none'}:{}}
         />
 
         <input type="number" placeholder={(settings.layout==='Expense')?'amount':'total steps'} name={names[1]}  value={formData[names[1]]} 
-         style={(settings.theme==='Dark')?{backgroundColor:'#040434',color:'white',border:'none',outline:'none'}:{}} />
+         style={(settings.theme==='Dark')?{backgroundColor:'#141E61',color:'white',border:'1px solid #035397',outline:'none'}:{}} />
 
         <input type="date"  name={names[2]} value={formData[names[2]]} 
-           style={(settings.theme==='Dark')?{backgroundColor:'#040434',color:'white',border:'none',outline:'none'}:{}}
+           style={(settings.theme==='Dark')?{backgroundColor:'#141E61',color:'white',border:'1px solid #035397',outline:'none'}:{}}
         />
 
         {
@@ -92,11 +92,11 @@ const InputForm = ({id,update,names}) => {
           placeholder="Add a note for your expense (optional)"
           
           value={formData[names[3]]}
-          style={(settings.theme==='Dark')?{backgroundColor:'#040434',color:'white',border:'none',outline:'none'}:{}}
+          style={(settings.theme==='Dark')?{backgroundColor:'#141E61',color:'white',border:'1px solid #035397',outline:'none'}:{}}
         ></textarea>):''
         }
         {
-          (path.pathname==='/addexpense')?<button type='submit'  style={(settings.theme)?{backgroundColor:'#1c88bf',color:'white',border:'none',outline:'none'}:{}}>submit</button>:''
+          (path.pathname==='/addexpense')?<button type='submit'  style={(settings.theme==='Dark')?{backgroundColor:'#1c88bf',color:'white',border:'none',outline:'none'}:((settings.theme==='Nature')?{backgroundColor:'#444941',color:'white',border:'none',outline:'none'}:{})}>submit</button>:''
         }
         {/* <button type='submit'>submit</button> */}
         

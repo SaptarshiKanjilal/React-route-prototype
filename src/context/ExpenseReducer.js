@@ -21,6 +21,8 @@ export default (state ,action)=>{
             fitness:[...state.fitness,action.payload]
            
        }
+       case 'EDIT_FITNESS':state.fitness.splice(action.payload,1,state.editedObj)
+       return state
         default:return state
     }
 }
