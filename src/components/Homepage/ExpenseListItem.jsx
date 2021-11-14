@@ -15,7 +15,7 @@ const ExpenseListItem = ({description,date,amount,idx,icon}) => {
   }
 
   return (
-    <li className="expense-item" key={idx} onClick={handleClick} style={(settings.theme==='Dark')?{backgroundColor:'#364064',color:'white',border:'none'}:{}}>
+    <li className="expense-item" key={idx} onClick={handleClick} style={(settings.theme==='Dark')?{backgroundColor:'#364064',color:'white',border:'none'}:((settings.theme==='Nature')?{backgroundColor:'#7FC8A9',color:'#444941',border:'none'}:{})}>
       <span>
         <h5>{(settings.layout==='Expense')?description:description+'m'}</h5>
         <h6>{newDate[2]} {month[Number(newDate[1])-1]} {newDate[0]}</h6>
