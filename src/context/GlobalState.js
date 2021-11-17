@@ -11,7 +11,9 @@ const initialState={
       theme:'Light',
       layout:'Expense'
     },
-    fitness:[]
+    fitness:[],
+    change:false,
+    filter:'1'
 }
 export const GlobalContext=createContext(initialState)
 
@@ -57,6 +59,18 @@ const GlobalState = ({children}) => {
         type:'EDIT_FITNESS',
         payload:data
       })
+      
+    }
+    const editChange=()=>{
+      dispatch({
+        type:'CHANGE'
+      })
+    }
+    const editFilter=(data)=>{
+      dispatch({
+        type:'EDIT_FILTER',
+        payload:data
+      })
     }
   
     return (
@@ -66,12 +80,16 @@ const GlobalState = ({children}) => {
             editedObj:state.editedObj,
             settings:state.settings,
             fitness:state.fitness,
+            change:state.change,
+            filter:state.filter,
             addExpense,
             editExpense,
             changeSettings,
             editObj,
             addFitness,
-            editFitness
+            editFitness,
+            editChange,
+            editFilter
         }}>
         
           {children}

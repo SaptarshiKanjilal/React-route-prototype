@@ -42,7 +42,7 @@ const InputForm = ({id,update,names}) => {
       // console.log(e.target.value,e.target.name);
       if(path.pathname==='/editexpense'){
         editObj(formData)
-        
+              
       }
       
   }

@@ -1,17 +1,17 @@
-import React,{useState,useContext} from 'react'
+import React,{useState,useContext,Fragment} from 'react'
 import { GlobalContext } from '../../context/GlobalState'
-import lighttheme from '../Images/lighttheme.png'
-import darktheme from '../Images/darktheme.png'
+
 
 const SettingsInput = () => {
     
     let [initial, stopInitial]=useState(true)
-    let {changeSettings,settings}=useContext(GlobalContext)
+    let {changeSettings,settings,editChange}=useContext(GlobalContext)
     console.log(settings);
    let [settingsData, setSettingsData]=useState({
        theme:'Light',
        layout:'Expense'
    })
+   
 
    const handleThemes=(e)=>{
     //    e.target.style.border='1px solid orange'
@@ -38,6 +38,7 @@ const SettingsInput = () => {
     const handleChange=(e)=>{
        e.preventDefault()
        changeSettings(settingsData)
+       editChange()
        console.log(settings);
     }
     const handleLayout=(e)=>{
@@ -48,6 +49,8 @@ const SettingsInput = () => {
     }
      console.log(settings);
     return (
+     
+         
         <form className=' container settings-input' onSubmit={handleChange} >
          <h3 className='title' style={(settings.theme==='Dark')?{color:'white'}:((settings.theme==='Nature')?{color:'white'}:{})}>Themes</h3>
 
@@ -75,6 +78,9 @@ const SettingsInput = () => {
             </div>
             <button className={`applychanges ${(settings.theme==='Dark')?'darkBtn':((settings.theme==='Nature')?'greenBtn':'')}`} type='submit'>Apply Changes</button>
         </form>
+    
+       
+        
     )
 }
 
