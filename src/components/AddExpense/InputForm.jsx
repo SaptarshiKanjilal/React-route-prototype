@@ -2,6 +2,7 @@ import React,{useContext,useState,useEffect} from 'react'
 import { GlobalContext } from '../../context/GlobalState';
 import {useHistory,useLocation} from 'react-router-dom'
 
+
 const InputForm = ({id,update,names}) => {
 
   let {expenses,addExpense,editObj,editedObj,settings,addFitness,fitness}=useContext(GlobalContext)
@@ -64,7 +65,9 @@ const InputForm = ({id,update,names}) => {
       [names[2]]:'',
       [names[3]]:''
     })
+   
     history.push('/')
+    
   
   }  
    
@@ -72,6 +75,8 @@ const InputForm = ({id,update,names}) => {
     return (
           
         <form className='inputWrapper' Add autocomplete="off" onSubmit={handleSubmit} onChange={handleChange} style={(path.pathname==='/editexpense')?{marginTop:'30px',height:'600px'}:{}}>
+         
+         
 
         <input type="text" placeholder={(settings.layout==='Expense')?'description':'distance covered(in metres)'} name={names[0]}  value={formData[names[0]]}
           style={(settings.theme==='Dark')?{backgroundColor:'#141E61',color:'white',border:'1px solid #035397',outline:'none'}:{}}

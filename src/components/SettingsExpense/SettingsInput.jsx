@@ -1,6 +1,7 @@
 import React,{useState,useContext,Fragment} from 'react'
 import { GlobalContext } from '../../context/GlobalState'
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const SettingsInput = () => {
     
@@ -47,11 +48,27 @@ const SettingsInput = () => {
             layout:e.target.value
         })
     }
+    const notify = () => toast("🦄 Changes successfully added");
+    const handleToast=(e)=>{
+        console.log(e.target);
+              notify()
+    }
      console.log(settings);
     return (
      
          
         <form className=' container settings-input' onSubmit={handleChange} >
+          <ToastContainer
+           position="top-center"
+           autoClose={2000}
+           hideProgressBar={false}
+           newestOnTop={false}
+           closeOnClick
+           rtl={false}
+           pauseOnFocusLoss
+           draggable
+           pauseOnHover
+           />
          <h3 className='title' style={(settings.theme==='Dark')?{color:'white'}:((settings.theme==='Nature')?{color:'white'}:{})}>Themes</h3>
 
             <div className='first' onClick={handleThemes} style={(settings.theme==='Dark')?{backgroundColor:'rgb(54, 64, 100)'}:((settings.theme==='Nature')?{backgroundColor:'rgb(127, 200, 169)'}:{})}>
@@ -76,7 +93,7 @@ const SettingsInput = () => {
                     <option value="Todo">Todo List</option>
                 </select>
             </div>
-            <button className={`applychanges ${(settings.theme==='Dark')?'darkBtn':((settings.theme==='Nature')?'greenBtn':'')}`} type='submit'>Apply Changes</button>
+            <button className={`applychanges ${(settings.theme==='Dark')?'darkBtn':((settings.theme==='Nature')?'greenBtn':'')}`} type='submit' onClick={handleToast}>Apply Changes</button>
         </form>
     
        
