@@ -4,9 +4,12 @@ import {useHistory} from 'react-router-dom'
 
 const ExpenseFilterForm = () => {
 
-    let {settings,editFilter,filter}=useContext(GlobalContext)
+    let {settings,editFilter,filter,editSearch,Search}=useContext(GlobalContext)
     let [listFilter, setListFilter]=useState('1')
+    let [search, setSearch]=useState('')
+    const [displayMessage, setDisplayMessage] = useState("");
     let history=useHistory()
+    
     const handleFilters=(e)=>{
       
       setListFilter(e.target.value)
@@ -19,6 +22,18 @@ const ExpenseFilterForm = () => {
     // },[filter])
 
     // console.log(filter);
+    const handleChange=(e)=>{
+    
+      setSearch(e.target.value)
+      // editSearch(search)
+      //  console.log(str);
+    }
+    useEffect(() => {                      //Remove the input display delay 
+      const timeOutId = setTimeout(() => {setDisplayMessage(search)
+        editSearch(search)}, 500);
+      // return () => clearTimeout(timeOutId);
+    }, [search]);
+    // console.log(displayMessage);
   return (
     <div className="ExpenseFilterForm">
       <div className="container filter-content">
@@ -28,6 +43,8 @@ const ExpenseFilterForm = () => {
           name="searchInput"
           autocomplete="off"
           style={(settings.theme==='Dark')?{backgroundColor:'#253454',color:'white',border:'none',outline:'none'}:{}}
+          onChange={handleChange}
+          value={search}
         />
         <select name="filterDropdown" className="filter-dropdown" style={(settings.theme==='Dark')?{backgroundColor:'#253454',color:'white',border:'none',outline:'none'}:{}} onChange={handleFilters}  >
           <option value="1" selected>

@@ -13,7 +13,10 @@ const initialState={
     },
     fitness:[],
     change:false,
-    filter:'1'
+    filter:'1',
+    decoyExpenses:[],
+    decoyFitness:[],
+    search:''
 }
 export const GlobalContext=createContext(initialState)
 
@@ -72,6 +75,14 @@ const GlobalState = ({children}) => {
         payload:data
       })
     }
+    const editSearch=(data)=>{
+
+       dispatch({
+         type:'EDIT_SEARCH',
+         payload:data
+       })
+
+    }
   
     return (
         <GlobalContext.Provider
@@ -82,6 +93,7 @@ const GlobalState = ({children}) => {
             fitness:state.fitness,
             change:state.change,
             filter:state.filter,
+            search:state.search,
             addExpense,
             editExpense,
             changeSettings,
@@ -89,7 +101,8 @@ const GlobalState = ({children}) => {
             addFitness,
             editFitness,
             editChange,
-            editFilter
+            editFilter,
+            editSearch
         }}>
         
           {children}

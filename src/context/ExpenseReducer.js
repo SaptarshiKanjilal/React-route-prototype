@@ -51,6 +51,9 @@ export default (state ,action)=>{
                               }
                                 
                            return state
+        case 'EDIT_SEARCH':state.Search=action.payload
+                            console.log(state.Search);
+                             return state                   
                                      
         default:return state
     }

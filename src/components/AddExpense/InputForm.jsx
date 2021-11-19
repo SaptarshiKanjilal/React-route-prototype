@@ -8,6 +8,7 @@ const InputForm = ({id,update,names}) => {
   let {expenses,addExpense,editObj,editedObj,settings,addFitness,fitness}=useContext(GlobalContext)
   let history=useHistory()
   let path=useLocation()
+  let st=''
   let [formData, setFormData]=useState((settings.layout==='Expense')?((!update)?{
     [names[0]]:'',
     [names[1]]:'',
@@ -25,6 +26,7 @@ const InputForm = ({id,update,names}) => {
           [names[1]]:Number(fitness[id].steps),
           [names[2]]:fitness[id].date,
           [names[3]]:fitness[id].note}))
+    const [displayMessage, setDisplayMessage] = useState("");
         // console.log(settings.layout,names);
   // let [fitnessData ,setFitnessData]=useState({
   //   distance:'',
@@ -41,12 +43,17 @@ const InputForm = ({id,update,names}) => {
      
       setFormData({...formData,[e.target.name]:e.target.value})
       // console.log(e.target.value,e.target.name);
+      
+      
+  }
+  useEffect(() => {                      //Remove the input display delay 
+    const timeOutId = setTimeout(() => {setDisplayMessage(formData)
       if(path.pathname==='/editexpense'){
         editObj(formData)
               
-      }
-      
-  }
+      }}, 500);
+    // return () => clearTimeout(timeOutId);
+  }, [formData]);
  
   const handleSubmit=(e)=>{
     e.preventDefault()
