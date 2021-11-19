@@ -125,7 +125,9 @@
   padding: 15px;
   cursor: pointer;
 }
-
+.expense-item:hover {
+  background-color: #f7f7f7;
+}
 .expense-item h5 {
   margin-bottom: 10px;
 }
