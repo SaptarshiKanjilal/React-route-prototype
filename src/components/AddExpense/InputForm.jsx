@@ -8,6 +8,7 @@ const InputForm = ({id,update,names}) => {
   let {expenses,addExpense,editObj,editedObj,settings,addFitness,fitness}=useContext(GlobalContext)
   let history=useHistory()
   let path=useLocation()
+  let st=''
   let [formData, setFormData]=useState((settings.layout==='Expense')?((!update)?{
     [names[0]]:'',
     [names[1]]:'',
